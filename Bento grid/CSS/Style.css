@@ -1,0 +1,76 @@
+  :root {
+    --purple-100: hsl(254, 88%, 90%);
+    --purple-500: hsl(256, 67%, 59%);
+    --yellow-100: hsl(31, 66%, 93%);
+    --yellow-500: hsl(39, 100%, 71%);
+    --white: #fff;
+  }
+
+  body {
+    background: #F6F6F6;
+    font-family: 'DM Sans', sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "b7 b1 b1 b4"
+      "b7 b1 b1 b4"
+      "b7 b2 b3 b4"
+      "b8 b2 b3 b4"
+      "b8 b6 b5 b5"
+      "b8 b6 b5 b5";
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 800px;
+  }
+
+  .grid-item {
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ألوان */
+  .b1 {grid-area: b1; background: var(--purple-500); color: var(--white); text-align: center; justify-content: center;}
+  .b2 {grid-area: b2; background: var(--white);}
+  .b3 {grid-area: b3; background: var(--yellow-500);}
+  .b4 {grid-area: b4; background: var(--purple-100);}
+  .b5 {grid-area: b5; background: var(--purple-500); color: var(--white); flex-direction: row; align-items: center; justify-content: space-around;}
+  .b6 {grid-area: b6; background: var(--white);}
+  .b7 {grid-area: b7; background: var(--yellow-100);}
+  .b8 {grid-area: b8; background: var(--yellow-500);}
+
+  /* الصور */
+  .grid-item img {
+    max-width: 200px;
+    object-fit: contain;
+    margin: 0.5rem auto 0;
+  }
+  .b2 img, .b3 img, .b6 img, .b7 img, .b8 img {max-width: 160px;}
+  .b4 img {max-width: 220px;}
+  .b5 img {max-width: 180px;}
+
+  /* النصوص */
+  .b1 h1 {font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;}
+  .b6 h2 {font-size: 3rem; font-weight: 700;}
+  .b7 span {color: var(--purple-500); font-style: italic;}
+  .text-warning {color: var(--yellow-500) !important;}
+
+  /* موبايل */
+  @media(max-width: 992px){
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "b1" "b2" "b3" "b4" "b5" "b6" "b7" "b8";
+    }
+    .b5 {flex-direction: column; text-align: center;}
+    .b1 h1 {font-size: 2rem;}
+    .grid-item {min-height: 250px;}
+    .grid-item img {margin-top: 1rem;}
+  }
